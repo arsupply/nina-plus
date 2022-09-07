@@ -1,0 +1,35 @@
+{% extends 'base_dashboard_admin.html.twig' %}
+
+{% block title %}Administrador del Sistema
+{% endblock %}
+{% block javascripts %}
+	<script src="/assets/js/dashboard_admin_index.js"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row" style="margin:auto !important">
+
+			<div classes="row">
+				<div class="col-12 col-md-12 col-lg-12">
+					<div class="card">
+						<div class="card-header"></div>
+						<div class="card-body">
+							<div id="piechart" align='center'></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-12 col-lg-12">
+					<div id="clientes"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+{% endblock %}
