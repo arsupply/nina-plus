@@ -1,0 +1,49 @@
+{% extends 'base_dashboard_admin.html.twig' %}
+{% block title %}Usuarios del Sistema
+{% endblock %}
+
+{% block body %}
+	<h1>Usuarios del Sistema</h1>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Nivel</th>
+				<th>Estado</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% set i = 1 %}
+			{% for user in users %}
+				<tr>
+					<td>{{ i }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+					<td>{{ user.nombre }}</td>
+					<td>{{ user.apellido }}</td>
+					<td>{{ user.nivel }}</td>
+					<td>{{ user.estado }}</td>
+					<td>
+						<a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+						<a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+					</td>
+				</tr>
+				{% set i = i + 1 %}
+
+			{% else %}
+				<tr>
+					<td colspan="9">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_user_new') }}">Create new</a>
+{% endblock %}
